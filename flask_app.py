@@ -1,7 +1,8 @@
 import apiai
+import json
 
 # api.ai account info
-CLIENT_ACCESS_TOKEN = "78c0e0________________fbcd9404a2"
+CLIENT_ACCESS_TOKEN = "___"
 ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
 from flask import Flask
