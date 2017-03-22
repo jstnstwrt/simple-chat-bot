@@ -28,7 +28,7 @@ def server(msg):
 
         return response
 
-    else
+    else:
         return 'I do not understand.'
 
 if __name__ == "__main__":
