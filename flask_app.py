@@ -23,7 +23,7 @@ def server():
     # get SMS metadata
     msg_from = request.values.get("From", None)
     msg = request.values.get("Body", None)
-    print('msg')
+    print(msg)
 
     # # prepare API.ai request
     # req = ai.text_request()
