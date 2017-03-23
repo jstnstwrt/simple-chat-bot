@@ -2,9 +2,9 @@ import apiai
 import json
 from flask import Flask
 
-from access_tokens import client_access_token
+import config
 
-ai = apiai.ApiAI(client_access_token)
+ai = apiai.ApiAI(config.client_access_token)
 app = Flask(__name__)
 
 @app.route("/test")
