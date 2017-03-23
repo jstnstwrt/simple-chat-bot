@@ -23,22 +23,23 @@ def server():
     # get SMS metadata
     msg_from = request.values.get("From", None)
     msg = request.values.get("Body", None)
-    print(msg)
 
-    # # prepare API.ai request
-    # req = ai.text_request()
-    # req.lang = 'en'  # optional, default value equal 'en'
-    # req.query = msg
+    # prepare API.ai request
+    req = ai.text_request()
+    req.lang = 'en'  # optional, default value equal 'en'
+    req.query = msg
 
-    #  # get response from API.ai
-    # api_response = req.getresponse()
-    # responsestr = api_response.read().decode('utf-8')
-    # response_obj = json.loads(responsestr)
+     # get response from API.ai
+    api_response = req.getresponse()
+    responsestr = api_response.read().decode('utf-8')
+    response_obj = json.loads(responsestr)
 
-    # if 'result' in response_obj:
-    #     response = response_obj["result"]["fulfillment"]["speech"]
+    if 'result' in response_obj:
+        response = response_obj["result"]["fulfillment"]["speech"]
 
-    return str(msg_from)
+        client.messages.create(to=msg_from, from_= config.account_num, body=response)
+
+    return str(resp)
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0')
